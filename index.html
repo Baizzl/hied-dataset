@@ -1,0 +1,586 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="HIED is a hearing-impaired EEG emotion recognition dataset available by reviewed application for affective computing research."
+      data-i18n-meta-description
+    >
+    <title>HIED Hearing-Impaired EEG Dataset</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#home" aria-label="HIED 数据集主页" data-i18n-aria-label="brand.aria">
+        <span class="brand-lockup">
+          <img src="assets/hied-logo-header.png" alt="HIED logo" data-i18n-alt="brand.logoAlt">
+        </span>
+      </a>
+      <div class="topbar-actions">
+        <nav class="nav" aria-label="主导航" data-i18n-aria-label="nav.aria">
+          <a href="#description" data-i18n="nav.dataset">数据集</a>
+          <a href="#stimuli" data-i18n="nav.stimuli">电影片段</a>
+          <a href="#protocol" data-i18n="nav.protocol">实验流程</a>
+          <a href="#apply" data-i18n="nav.access">申请数据</a>
+          <a href="#publication" data-i18n="nav.citation">论文引用</a>
+          <a href="#contact" data-i18n="nav.contact">联系</a>
+        </nav>
+        <div class="language-switch" role="group" aria-label="语言切换" data-i18n-aria-label="language.aria">
+          <button class="language-button" type="button" data-language-option="zh" aria-pressed="false">中文</button>
+          <button class="language-button active" type="button" data-language-option="en" aria-pressed="true">EN</button>
+        </div>
+      </div>
+    </header>
+
+    <main id="home">
+      <section class="masthead" aria-labelledby="page-title">
+        <div class="masthead-copy">
+          <p class="kicker" data-i18n="hero.kicker">HIED · EEG 情绪识别数据集</p>
+          <h1 id="page-title" data-i18n="hero.title">HIED 听障人群脑电情绪识别数据集</h1>
+          <p class="lead" data-i18n="hero.lead">
+            HIED 是面向听障人群的预处理脑电情绪识别数据集，记录被试在观看情绪电影片段时的 EEG 信号，
+            可用于情感计算、脑机交互与包容性情绪识别研究。
+          </p>
+          <div class="action-row" aria-label="主要操作" data-i18n-aria-label="hero.actions">
+            <a class="button primary" href="#stimuli" data-i18n="hero.stimuli">查看电影片段</a>
+            <a class="button secondary" href="#apply" data-i18n="hero.requestAccess">申请 EEG 数据</a>
+            <a class="button secondary" href="https://doi.org/10.1109/JBHI.2023.3301993" data-i18n="hero.doi">查看论文 DOI</a>
+          </div>
+          <div class="signal-ribbon" aria-hidden="true">
+            <span>EEG</span>
+            <svg viewBox="0 0 640 92" role="img">
+              <path class="signal-grid-line" d="M0 46H640"></path>
+              <path class="signal-wave signal-wave-main" d="M0 47 C35 47 38 18 58 18 C82 18 78 74 102 74 C125 74 130 32 152 32 C176 32 178 60 198 60 C222 60 228 20 250 20 C270 20 276 70 304 70 C330 70 332 38 354 38 C378 38 380 58 402 58 C430 58 430 24 456 24 C480 24 482 76 512 76 C540 76 536 40 562 40 C588 40 596 50 640 50"></path>
+              <path class="signal-wave signal-wave-ghost" d="M0 58 C42 58 44 36 74 36 C96 36 96 66 128 66 C156 66 150 28 184 28 C210 28 216 74 246 74 C274 74 282 42 312 42 C340 42 342 60 372 60 C408 60 404 30 438 30 C470 30 468 70 502 70 C534 70 540 44 570 44 C600 44 604 58 640 58"></path>
+            </svg>
+            <span>200 Hz</span>
+          </div>
+        </div>
+
+        <aside class="record-panel" aria-label="数据集档案" data-i18n-aria-label="record.aria">
+          <div class="record-header">
+            <span class="record-code">HIED</span>
+            <span class="record-status" data-i18n="record.status">刺激信息 · 数据申请</span>
+          </div>
+          <dl class="record-list">
+            <div>
+              <dt data-i18n="record.release.label">开放内容</dt>
+              <dd data-i18n="record.release.value">预处理 EEG 时序数据</dd>
+            </div>
+            <div>
+              <dt data-i18n="record.files.label">数据文件</dt>
+              <dd data-i18n="record.files.value">900 个 MATLAB 文件，约 9.0 GB</dd>
+            </div>
+            <div>
+              <dt data-i18n="record.signal.label">公开信号</dt>
+              <dd data-i18n="record.signal.value">62 通道，预处理后 200 Hz</dd>
+            </div>
+            <div>
+              <dt data-i18n="record.stimuli.label">刺激材料</dt>
+              <dd data-i18n="record.stimuli.value">30 个中文字幕电影片段，6 类情绪</dd>
+            </div>
+          </dl>
+        </aside>
+      </section>
+
+      <section class="stats-strip" aria-label="数据集摘要" data-i18n-aria-label="stats.aria">
+        <div>
+          <span>30</span>
+          <p data-i18n="stats.subjects">名听障被试</p>
+        </div>
+        <div>
+          <span>900</span>
+          <p data-i18n="stats.files">个预处理 MAT 文件</p>
+        </div>
+        <div>
+          <span>62</span>
+          <p data-i18n="stats.channels">公开 EEG 通道</p>
+        </div>
+        <div>
+          <span>200 Hz</span>
+          <p data-i18n="stats.rate">公开采样率</p>
+        </div>
+        <div>
+          <span>~9.0 GB</span>
+          <p data-i18n="stats.volume">数据集规模</p>
+        </div>
+      </section>
+
+      <section class="section visual-section" aria-labelledby="visual-title">
+        <div class="section-label" data-i18n="section.visual">可视化</div>
+        <div class="section-body">
+          <h2 id="visual-title" data-i18n="visual.title">Dataset at a glance.</h2>
+          <div class="visual-grid">
+            <article class="visual-card signal-card">
+              <div class="visual-art eeg-art" aria-hidden="true">
+                <svg viewBox="0 0 520 260">
+                  <defs>
+                    <linearGradient id="waveGradient" x1="0" x2="1" y1="0" y2="0">
+                      <stop offset="0" stop-color="#8f2028"></stop>
+                      <stop offset="0.48" stop-color="#1d6f73"></stop>
+                      <stop offset="1" stop-color="#b98b2d"></stop>
+                    </linearGradient>
+                  </defs>
+                  <g class="channel-field">
+                    <circle cx="120" cy="62" r="5"></circle>
+                    <circle cx="210" cy="40" r="5"></circle>
+                    <circle cx="310" cy="60" r="5"></circle>
+                    <circle cx="410" cy="44" r="5"></circle>
+                    <circle cx="150" cy="198" r="5"></circle>
+                    <circle cx="260" cy="218" r="5"></circle>
+                    <circle cx="382" cy="196" r="5"></circle>
+                  </g>
+                  <path class="eeg-band eeg-band-a" d="M34 88 C76 88 80 52 116 52 C152 52 150 126 188 126 C230 126 220 74 258 74 C304 74 292 142 334 142 C382 142 370 72 414 72 C452 72 458 102 486 102"></path>
+                  <path class="eeg-band eeg-band-b" d="M34 152 C82 152 78 118 120 118 C156 118 160 182 198 182 C240 182 244 132 284 132 C320 132 322 166 358 166 C404 166 404 118 446 118 C470 118 480 140 486 140"></path>
+                  <path class="eeg-band eeg-band-c" d="M34 205 C78 205 82 176 128 176 C168 176 168 232 212 232 C260 232 252 186 300 186 C350 186 344 226 392 226 C430 226 444 198 486 198"></path>
+                </svg>
+              </div>
+              <h3 data-i18n="visual.signal.title">Preprocessed EEG Signals</h3>
+              <p data-i18n="visual.signal.text">Released trials provide 62-channel EEG time-series at 200 Hz, ready for custom feature extraction and modeling.</p>
+              <div class="visual-tags">
+                <span data-i18n="visual.signal.tag1">62 channels</span>
+                <span data-i18n="visual.signal.tag2">200 Hz</span>
+                <span data-i18n="visual.signal.tag3">MAT files</span>
+              </div>
+            </article>
+
+            <article class="visual-card emotion-card">
+              <div class="visual-art emotion-art" aria-hidden="true">
+                <div class="emotion-core">HIED</div>
+                <span class="emotion-dot happiness" data-i18n="emotion.happiness">Happiness</span>
+                <span class="emotion-dot encouragement" data-i18n="emotion.encouragement">Encouragement</span>
+                <span class="emotion-dot neutral" data-i18n="emotion.neutral">Neutral</span>
+                <span class="emotion-dot anger" data-i18n="emotion.anger">Anger</span>
+                <span class="emotion-dot fear" data-i18n="emotion.fear">Fear</span>
+                <span class="emotion-dot sadness" data-i18n="emotion.sadness">Sadness</span>
+              </div>
+              <h3 data-i18n="visual.emotion.title">Six Emotion Categories</h3>
+              <p data-i18n="visual.emotion.text">Thirty Chinese-subtitled movie clips are balanced across six emotion categories, with five clips per class.</p>
+              <div class="mini-bars" aria-hidden="true">
+                <span></span><span></span><span></span><span></span><span></span><span></span>
+              </div>
+            </article>
+
+            <article class="visual-card structure-card">
+              <div class="visual-art structure-art" aria-hidden="true">
+                <div class="folder-layer subject-layer">
+                  <strong>S01-S30</strong>
+                  <span data-i18n="visual.structure.subjects">30 subject folders</span>
+                </div>
+                <div class="flow-dots"><span></span><span></span><span></span></div>
+                <div class="folder-layer trial-layer">
+                  <strong>s01.mat-s30.mat</strong>
+                  <span data-i18n="visual.structure.trials">30 trials each</span>
+                </div>
+                <div class="flow-dots"><span></span><span></span><span></span></div>
+                <div class="folder-layer variable-layer">
+                  <strong>data · srate · times</strong>
+                  <span data-i18n="visual.structure.variables">time-series variables</span>
+                </div>
+              </div>
+              <h3 data-i18n="visual.structure.title">Clear File Organization</h3>
+              <p data-i18n="visual.structure.text">The release is organized by subject and trial so researchers can quickly script loading, preprocessing checks, and model experiments.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section overview" aria-labelledby="overview-title">
+        <div class="section-label" data-i18n="section.overview">概览</div>
+        <div class="section-body">
+          <h2 id="overview-title" data-i18n="overview.title">面向听障人群情绪分析的脑电数据集。</h2>
+          <div class="overview-feature-grid">
+            <article class="overview-feature">
+              <p data-i18n="overview.p1">
+                HIED 记录听障被试观看情绪电影片段时的 EEG 活动，覆盖快乐、激励、平静、愤怒、恐惧和悲伤六类情绪，用于面向听障人群的情绪识别研究。
+              </p>
+              <figure class="experiment-figure participant-figure">
+                <img src="assets/participant-session.png" alt="HIED participant wearing an EEG cap during movie stimulation" data-i18n-alt="overview.participantAlt">
+              </figure>
+            </article>
+            <article class="overview-feature">
+              <p data-i18n="overview.p2">
+                数据包提供预处理后的 EEG 时序信号，不包含已提取特征。申请者提交 Word 申请表并经审核后获取数据，可根据研究设计开展特征提取、建模与验证。
+              </p>
+              <figure class="experiment-figure">
+                <img src="assets/experiment-setup.jpg" alt="HIED EEG experiment setup with acquisition equipment and stimulus display" data-i18n-alt="overview.setupAlt">
+              </figure>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="description" class="section dataset-section" aria-labelledby="description-title">
+        <div class="section-label" data-i18n="section.dataset">数据集</div>
+        <div class="section-body">
+          <h2 id="description-title" data-i18n="dataset.title">数据集描述</h2>
+
+          <div class="data-grid">
+            <article>
+              <span class="item-index">01</span>
+              <h3 data-i18n="dataset.card1.title">被试信息</h3>
+              <p data-i18n="dataset.card1.text">
+                数据集包含 30 名听障学生被试，其中女性 12 名、男性 18 名，平均年龄 22 岁。
+              </p>
+            </article>
+            <article>
+              <span class="item-index">02</span>
+              <h3 data-i18n="dataset.card2.title">刺激材料</h3>
+              <p data-i18n="dataset.card2.text">
+                30 个带中文字幕的电影片段覆盖 6 类情绪，每类 5 个。片段时长范围为 182 s 至 373 s，平均时长 231.37 s。
+              </p>
+            </article>
+            <article>
+              <span class="item-index">03</span>
+              <h3 data-i18n="dataset.card3.title">脑电信号</h3>
+              <p data-i18n="dataset.card3.text">
+                EEG 使用 64 通道 Neuroscan SynAmps2 系统采集；公开文件包含预处理后的 62 通道 EEG 信号，采样率为 200 Hz。
+              </p>
+            </article>
+            <article>
+              <span class="item-index">04</span>
+              <h3 data-i18n="dataset.card4.title">数据组织</h3>
+              <p data-i18n-html="dataset.card4.text">
+                数据按被试文件夹 <code>S01</code> 至 <code>S30</code> 组织。每个被试文件夹包含 30 个试次文件，命名为 <code>s01.mat</code> 至 <code>s30.mat</code>。
+              </p>
+            </article>
+          </div>
+
+          <div class="technical-table" role="table" aria-label="技术规格" data-i18n-aria-label="technical.aria">
+            <div role="row">
+              <strong role="cell" data-i18n="technical.cnName.label">中文名称</strong>
+              <span role="cell" data-i18n="technical.cnName.value">听障人群脑电情绪识别数据集</span>
+            </div>
+            <div role="row">
+              <strong role="cell" data-i18n="technical.enName.label">英文名称</strong>
+              <span role="cell" data-i18n="technical.enName.value">HIED, Hearing-Impaired EEG Dataset</span>
+            </div>
+            <div role="row">
+              <strong role="cell" data-i18n="technical.release.label">开放数据</strong>
+              <span role="cell" data-i18n-html="technical.release.value">MATLAB <code>.mat</code> 格式的预处理 EEG 时序数据；不包含特征提取结果。</span>
+            </div>
+            <div role="row">
+              <strong role="cell" data-i18n="technical.layout.label">文件结构</strong>
+              <span role="cell" data-i18n-html="technical.layout.value"><code>HIED/S01-S30</code>，共 30 个被试文件夹、900 个试次文件。</span>
+            </div>
+            <div role="row">
+              <strong role="cell" data-i18n="technical.variables.label">MAT 变量</strong>
+              <span role="cell" data-i18n-html="technical.variables.value"><code>data</code>、<code>nbchan</code>、<code>srate</code> 和 <code>times</code>；<code>data</code> 以通道 × 时间点形式存储。</span>
+            </div>
+            <div role="row">
+              <strong role="cell" data-i18n="technical.emotions.label">情绪类别</strong>
+              <span role="cell" data-i18n="technical.emotions.value">快乐、激励、平静、愤怒、恐惧、悲伤。</span>
+            </div>
+            <div role="row">
+              <strong role="cell" data-i18n="technical.acquisition.label">采集设备</strong>
+              <span role="cell" data-i18n="technical.acquisition.value">Neuroscan SynAmps2，64 通道 Quik-Cap，AgCl 电极，国际 10-20 系统，电极阻抗控制在 5 kOhm 以下。</span>
+            </div>
+            <div role="row">
+              <strong role="cell" data-i18n="technical.preprocessing.label">预处理流程</strong>
+              <span role="cell" data-i18n="technical.preprocessing.value">降采样至 200 Hz，1-75 Hz 滤波，49-51 Hz 工频抑制，坏道插值，TP9/TP10 重参考，并通过 ICA 去除伪迹。</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="stimuli" class="section stimuli-section" aria-labelledby="stimuli-title">
+        <div class="section-label" data-i18n="section.stimuli">电影片段</div>
+        <div class="section-body">
+          <h2 id="stimuli-title" data-i18n="stimuli.title">Movie Stimuli</h2>
+          <p class="section-intro" data-i18n="stimuli.intro">
+            HIED 使用 30 个带中文字幕的电影片段作为情绪刺激源，覆盖 6 类离散情绪，每类 5 个片段。片段编号、情绪标签、片名、开始时间和时长共同构成可复现实验刺激设计的基础信息。
+          </p>
+          <div class="stimuli-summary">
+            <div>
+              <span>30</span>
+              <p data-i18n="stimuli.summary.clips">movie clips</p>
+            </div>
+            <div>
+              <span>6</span>
+              <p data-i18n="stimuli.summary.emotions">emotion categories</p>
+            </div>
+            <div>
+              <span>5</span>
+              <p data-i18n="stimuli.summary.perEmotion">clips per emotion</p>
+            </div>
+            <div>
+              <span>231.37 s</span>
+              <p data-i18n="stimuli.summary.average">average duration</p>
+            </div>
+          </div>
+          <div class="movie-emotion-grid" data-emotion-groups aria-label="Movie clips grouped by emotion" data-i18n-aria-label="stimuli.groups.aria"></div>
+          <div class="movie-table-wrap">
+            <table class="movie-table">
+              <thead>
+                <tr>
+                  <th data-i18n="stimuli.table.no">No.</th>
+                  <th data-i18n="stimuli.table.emotion">Emotion</th>
+                  <th data-i18n="stimuli.table.title">Movie title</th>
+                  <th data-i18n="stimuli.table.start">Start time</th>
+                  <th data-i18n="stimuli.table.length">Length</th>
+                </tr>
+              </thead>
+              <tbody data-movie-table></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section id="protocol" class="section protocol-section" aria-labelledby="protocol-title">
+        <div class="section-label" data-i18n="section.protocol">流程</div>
+        <div class="section-body">
+          <h2 id="protocol-title" data-i18n="protocol.title">实验与处理流程</h2>
+          <div class="preprocess-demo" aria-label="HIED preprocessing animation" data-i18n-aria-label="preprocess.aria">
+            <div class="preprocess-copy">
+              <p class="kicker" data-i18n="preprocess.kicker">EEG 信号预处理</p>
+              <h3 data-i18n="preprocess.title">From raw EEG to clean trial-level signals.</h3>
+              <p data-i18n="preprocess.text">
+                预处理流程在特征提取前完成：EEG 信号降采样至 200 Hz，经 1-75 Hz 带通滤波和 49-51 Hz 工频抑制减少冗余与干扰，随后进行坏导插值、TP9/TP10 重参考和 ICA 伪迹去除，形成稳定的试次级 EEG 信号。
+              </p>
+            </div>
+            <div class="preprocess-visual" aria-hidden="true">
+              <div class="raw-signal-label" data-i18n="preprocess.raw">Raw EEG</div>
+              <svg viewBox="0 0 720 250">
+                <path class="raw-noise" d="M20 90 C40 20 62 160 84 82 C106 10 126 170 150 88 C174 20 198 150 220 92 C246 32 264 160 292 86 C320 12 340 174 368 90 C392 28 420 148 446 84 C472 18 494 166 524 88 C552 34 578 150 606 86 C632 18 654 166 700 92"></path>
+                <path class="clean-signal" d="M20 165 C72 165 70 132 118 132 C170 132 168 196 220 196 C276 196 270 148 324 148 C382 148 378 188 434 188 C492 188 494 136 552 136 C602 136 618 166 700 166"></path>
+                <g class="sample-points">
+                  <circle cx="82" cy="160" r="4"></circle>
+                  <circle cx="168" cy="144" r="4"></circle>
+                  <circle cx="254" cy="190" r="4"></circle>
+                  <circle cx="340" cy="154" r="4"></circle>
+                  <circle cx="426" cy="184" r="4"></circle>
+                  <circle cx="512" cy="144" r="4"></circle>
+                  <circle cx="598" cy="150" r="4"></circle>
+                </g>
+                <rect class="filter-band" x="122" y="108" width="220" height="104" rx="8"></rect>
+                <path class="processing-sweep" d="M0 28V226"></path>
+              </svg>
+              <div class="clean-signal-label" data-i18n="preprocess.clean">Clean EEG</div>
+            </div>
+            <ol class="preprocess-steps">
+              <li><strong data-i18n="preprocess.step1.title">Downsample</strong><span data-i18n="preprocess.step1.text">Raw EEG is reduced to 200 Hz.</span></li>
+              <li><strong data-i18n="preprocess.step2.title">Filter</strong><span data-i18n="preprocess.step2.text">1-75 Hz bandpass and 49-51 Hz power-line suppression.</span></li>
+              <li><strong data-i18n="preprocess.step3.title">Interpolate</strong><span data-i18n="preprocess.step3.text">Bad channels are replaced using neighboring-channel averages.</span></li>
+              <li><strong data-i18n="preprocess.step4.title">Re-reference</strong><span data-i18n="preprocess.step4.text">TP9 and TP10 mastoids are used as reference electrodes.</span></li>
+              <li><strong data-i18n="preprocess.step5.title">ICA cleaning</strong><span data-i18n="preprocess.step5.text">Eye, muscle, cardiac, and environmental artifacts are reduced.</span></li>
+            </ol>
+          </div>
+          <div class="pipeline-visual" aria-label="Experiment pipeline" data-i18n-aria-label="protocol.pipeline.aria">
+            <div class="pipeline-node">
+              <span>01</span>
+              <strong data-i18n="protocol.pipe1">Consent</strong>
+            </div>
+            <div class="pipeline-node">
+              <span>02</span>
+              <strong data-i18n="protocol.pipe2">EEG Setup</strong>
+            </div>
+            <div class="pipeline-node">
+              <span>03</span>
+              <strong data-i18n="protocol.pipe3">Movie Clips</strong>
+            </div>
+            <div class="pipeline-node">
+              <span>04</span>
+              <strong data-i18n="protocol.pipe4">Self-rating</strong>
+            </div>
+            <div class="pipeline-node">
+              <span>05</span>
+              <strong data-i18n="protocol.pipe5">Preprocessing</strong>
+            </div>
+            <div class="pipeline-node">
+              <span>06</span>
+              <strong data-i18n="protocol.pipe6">Release</strong>
+            </div>
+          </div>
+          <ol class="protocol-list">
+            <li>
+              <span>01</span>
+              <div>
+                <h3 data-i18n="protocol.step1.title">招募与知情同意</h3>
+                <p data-i18n="protocol.step1.text">
+                  实验前通过手语支持向被试说明实验目的、流程与注意事项，被试签署知情同意书后参与 EEG 采集。
+                </p>
+              </div>
+            </li>
+            <li>
+              <span>02</span>
+              <div>
+                <h3 data-i18n="protocol.step2.title">采集准备</h3>
+                <p data-i18n="protocol.step2.text">
+                  清洁头皮，按标准定位佩戴脑电帽，注入导电膏，并在正式记录前检查电极阻抗。
+                </p>
+              </div>
+            </li>
+            <li>
+              <span>03</span>
+              <div>
+                <h3 data-i18n="protocol.step3.title">情绪诱发</h3>
+                <p data-i18n="protocol.step3.text">
+                  每个试次开始前呈现情绪提示，被试观看一个带中文字幕的电影片段，同时连续记录 EEG 信号。
+                </p>
+              </div>
+            </li>
+            <li>
+              <span>04</span>
+              <div>
+                <h3 data-i18n="protocol.step4.title">休息与自评</h3>
+                <p data-i18n="protocol.step4.text">
+                  每个片段结束后至少休息 15 s，随后约 1 min 完成情绪自评与实验记录。
+                </p>
+              </div>
+            </li>
+            <li>
+              <span>05</span>
+              <div>
+                <h3 data-i18n="protocol.step5.title">信号预处理</h3>
+                <p data-i18n="protocol.step5.text">
+                  原始 EEG 经降采样、滤波、重参考、坏道修复，并使用独立成分分析减少眼动、肌电、心电和环境噪声伪迹。
+                </p>
+              </div>
+            </li>
+            <li>
+              <span>06</span>
+              <div>
+                <h3 data-i18n="protocol.step6.title">公开数据</h3>
+                <p data-i18n="protocol.step6.text">
+                  公开包提供试次级预处理 EEG 信号。研究者可根据自己的研究设计进行特征提取、建模与验证。
+                </p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section results-section" aria-labelledby="results-title">
+        <div class="section-label" data-i18n="section.baseline">基线</div>
+        <div class="section-body">
+          <h2 id="results-title" data-i18n="baseline.title">参考方法与论文结果</h2>
+          <div class="results-table" role="table" aria-label="论文报告的基线结果" data-i18n-aria-label="baseline.aria">
+            <div role="row">
+              <strong role="cell" data-i18n="baseline.header.feature">特征</strong>
+              <strong role="cell" data-i18n="baseline.header.experiment">实验设置</strong>
+              <strong role="cell" data-i18n="baseline.header.accuracy">报告准确率</strong>
+              <strong role="cell" data-i18n="baseline.header.method">方法</strong>
+            </div>
+            <div role="row">
+              <span role="cell">DE</span>
+              <span role="cell" data-i18n="baseline.row1.experiment">被试依赖，六分类情绪识别</span>
+              <span role="cell">84.76%</span>
+              <span role="cell">SECT</span>
+            </div>
+            <div role="row">
+              <span role="cell">PSD</span>
+              <span role="cell" data-i18n="baseline.row2.experiment">被试依赖，六分类情绪识别</span>
+              <span role="cell">82.51%</span>
+              <span role="cell">SECT</span>
+            </div>
+            <div role="row">
+              <span role="cell">DE / PSD</span>
+              <span role="cell" data-i18n="baseline.row3.experiment">时间窗口对比</span>
+              <span role="cell" data-i18n="baseline.row3.accuracy">3 s 窗口效果最好</span>
+              <span role="cell">SECT</span>
+            </div>
+          </div>
+          <p class="note" data-i18n="baseline.note">
+            关联论文报告了 Shifted EEG Channel Transformer 方法。可申请获取的 HIED 数据包本身提供预处理 EEG 信号，不包含 PSD 或 DE 特征文件。
+          </p>
+        </div>
+      </section>
+
+      <section id="apply" class="section access-section" aria-labelledby="apply-title">
+        <div class="section-label" data-i18n="section.access">申请</div>
+        <div class="section-body">
+          <h2 id="apply-title" data-i18n="access.title">申请 HIED 脑电数据</h2>
+          <div class="access-layout">
+            <article class="access-card">
+              <h3 data-i18n="access.card.title">访问说明</h3>
+              <p data-i18n="access.card.text">
+                HIED 预处理 EEG 数据需要通过申请审核获取，请下载 Word 申请表，填写研究用途、申请人信息和数据使用承诺后发送至指定邮箱。
+              </p>
+              <ul class="requirements">
+                <li data-i18n="access.req1">申请用途应为学术研究或非商业研究。</li>
+                <li data-i18n="access.req2">申请人需说明研究主题、单位和预期数据使用方式。</li>
+                <li data-i18n="access.req3">数据不得用于识别被试身份或超出审核范围的二次分发。</li>
+                <li data-i18n="access.req4">论文或成果中使用 HIED 时，请引用关联论文。</li>
+              </ul>
+              <div class="access-actions">
+                <a class="button primary" href="HIED_Application_Form.docx" download data-i18n="access.downloadForm">下载申请表</a>
+                <a class="button secondary" data-contact-email href="mailto:ceshiyong@hotmail.com">ceshiyong@hotmail.com</a>
+              </div>
+            </article>
+
+            <form class="email-form" data-application-form>
+              <h3 data-i18n="form.title">生成申请邮件</h3>
+              <label>
+                <span data-i18n="form.name">姓名</span>
+                <input type="text" name="name" autocomplete="name" data-i18n-placeholder="form.namePlaceholder" placeholder="请输入申请人姓名">
+              </label>
+              <label>
+                <span data-i18n="form.affiliation">单位</span>
+                <input type="text" name="affiliation" autocomplete="organization" data-i18n-placeholder="form.affiliationPlaceholder" placeholder="请输入所在单位">
+              </label>
+              <label>
+                <span data-i18n="form.purpose">研究用途</span>
+                <textarea name="purpose" rows="4" data-i18n-placeholder="form.purposePlaceholder" placeholder="简要说明研究主题和数据使用方式"></textarea>
+              </label>
+              <button class="button primary full" type="submit" data-i18n="form.submit">打开邮件客户端</button>
+              <p class="form-status" data-form-status aria-live="polite"></p>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section id="publication" class="section publication-section" aria-labelledby="publication-title">
+        <div class="section-label" data-i18n="section.citation">引用</div>
+        <div class="section-body">
+          <h2 id="publication-title" data-i18n="citation.title">关联论文</h2>
+          <article class="paper-record">
+            <p class="paper-label">IEEE Journal of Biomedical and Health Informatics · 2023</p>
+            <h3>SECT: A Method of Shifted EEG Channel Transformer for Emotion Recognition</h3>
+            <p data-i18n-html="citation.paper">
+              Zhongli Bai, Fazheng Hou, Kaixuan Sun, Qingzhou Wu, Mu Zhu, Zemin Mao, Yu Song, and Qiang Gao.
+              <em>IEEE Journal of Biomedical and Health Informatics</em>, vol. 27, no. 10, pp. 4758-4767, 2023.
+              DOI: <a href="https://doi.org/10.1109/JBHI.2023.3301993">10.1109/JBHI.2023.3301993</a>.
+            </p>
+            <div class="action-row">
+              <a class="button secondary dark" href="https://doi.org/10.1109/JBHI.2023.3301993" data-i18n="citation.openDoi">查看 DOI</a>
+              <button class="button secondary dark" type="button" data-copy-bibtex data-i18n="citation.copyBibtex">复制 BibTeX</button>
+            </div>
+          </article>
+
+          <pre class="bibtex" data-bibtex>@article{bai2023sect,
+  title={SECT: A Method of Shifted EEG Channel Transformer for Emotion Recognition},
+  author={Bai, Zhongli and Hou, Fazheng and Sun, Kaixuan and Wu, Qingzhou and Zhu, Mu and Mao, Zemin and Song, Yu and Gao, Qiang},
+  journal={IEEE Journal of Biomedical and Health Informatics},
+  volume={27},
+  number={10},
+  pages={4758--4767},
+  year={2023},
+  doi={10.1109/JBHI.2023.3301993}
+}</pre>
+        </div>
+      </section>
+
+      <section id="contact" class="section contact-section" aria-labelledby="contact-title">
+        <div class="section-label" data-i18n="section.contact">联系</div>
+        <div class="section-body">
+          <h2 id="contact-title" data-i18n="contact.title">数据集团队</h2>
+          <div class="contact-block">
+            <div>
+              <h3 data-i18n="contact.email.title">申请邮箱</h3>
+              <p><a data-contact-email href="mailto:ceshiyong@hotmail.com">ceshiyong@hotmail.com</a></p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p data-i18n-html="footer.copyright">© <span data-current-year>2026</span> HIED Dataset</p>
+      <p data-i18n="footer.access">HIED 预处理 EEG 数据需提交申请表审核。</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
