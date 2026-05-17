@@ -140,18 +140,3 @@ Zhongli Bai, Fazheng Hou, Kaixuan Sun, Qingzhou Wu, Mu Zhu, Zemin Mao, Yu Song, 
   doi={10.1109/JBHI.2023.3301993}
 }
 ```
-
-## Repository Contents
-
-This repository hosts the static public website and request documents.
-
-| Path | Description |
-| --- | --- |
-| `index.html` | Website structure and content |
-| `styles.css` | Visual design and responsive layout |
-| `script.js` | Chinese/English language switch, movie table rendering, contact email helper, and interaction behavior |
-| `assets/hied-logo-header.png` | HIED logo used in the website header |
-| `assets/experiment-setup.jpg` | Experiment setup image |
-| `assets/participant-session.png` | Participant-session photo used in the overview |
-| `HIED_Data_Request_Form_EN.docx` | English Word request form |
-| `HIED_Data_Request_Form_CN.docx` | Chinese Word request form |
