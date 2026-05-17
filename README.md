@@ -10,7 +10,7 @@ Website: https://baizzl.github.io/hied-dataset/
 
 HIED records EEG activity from 30 hearing-impaired student participants during movie-based emotion induction. The stimulus set covers six emotion categories: happiness, encouragement, neutral state, anger, fear, and sadness. The released data package provides preprocessed EEG time-series signals and does not include extracted PSD, DE, or other feature files.
 
-The preprocessed EEG data are not stored in this public repository. Access requires submitting a completed request form for review.
+The preprocessed EEG data are not stored in this public repository. Access requires submitting a completed and signed license agreement for review.
 
 ## Dataset Summary
 
@@ -110,18 +110,18 @@ The associated publication reports the Shifted EEG Channel Transformer method fo
 
 ## Dataset Access
 
-Access to the preprocessed HIED EEG data requires review. Please download and complete one of the request forms, then email it to the dataset contact address.
+Access to the preprocessed HIED EEG data requires review. Please download and complete one of the license agreements, sign it, then email it to the dataset contact address.
 
-- English request form: `HIED_Data_Request_Form_EN.docx`
-- Chinese request form: `HIED_Data_Request_Form_CN.docx`
+- English license agreement: `HIED_Data_Request_Form_EN.docx`
+- Chinese license agreement: `HIED_Data_Request_Form_CN.docx`
 - Contact email: jasonsongrain@hotmail.com
 
 Use requirements:
 
 1. The intended use should be academic or non-commercial research.
-2. Applicants should describe the research topic, affiliation, and expected data-use plan.
+2. Users should complete personal, PI, supervisor, or institutional contact information.
 3. The data must not be used to identify participants.
-4. The data must not be redistributed beyond the approved scope.
+4. The data must not be transferred, shared, publicly posted, or redistributed without permission.
 5. Publications or research outputs using HIED should cite the associated paper.
 
 ## Citation
