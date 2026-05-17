@@ -12,10 +12,11 @@ The website introduces the dataset overview, experiment protocol, movie-stimulus
 - `assets/hied-logo-header.png` - HIED logo used in the header
 - `assets/experiment-setup.jpg` - experiment setup image
 - `assets/participant-session.png` - participant-session photo used in the overview
-- `HIED_Application_Form.docx` - Word application form for dataset access review
+- `HIED_Data_Request_Form_EN.docx` - English Word request form for dataset access review
+- `HIED_Data_Request_Form_CN.docx` - Chinese Word request form for dataset access review
 
 ## Dataset Access
 
 The preprocessed EEG data are not stored in this public repository. Access requires submitting the Word application form for review.
 
-Contact email: ceshiyong@hotmail.com
+Contact email: jasonsongrain@hotmail.com
